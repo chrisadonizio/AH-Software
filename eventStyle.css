@@ -120,13 +120,15 @@ version*/
     /*content is '' because it is just a line and has no specific element */
     .timeline::before{
         content: '';
-        /*position absolute displays elements relative to the entire screen instead of parent elements*/
+        /*position absolute displays elements relative to their parent elements -- position: relative is relative to default html position */
         position: absolute;
-        /*the gray line that is 4px larger*/
+        /*the gray line that is 4px large and goes the entire length of the timeline*/
         height: 100%;
-        width: 4px;
-        left: 50%;
         background-color: rgb(160, 160, 160);
+        width: 4px;
+        /*when using left 50% it moves the top left corner of the 4px line to the middle point of the container to account for this the transform -50% is needed*/
+        left: 50%; 
+        /*this moves it 50% of the element size making the line positioned relative to its center*/
         transform: translate(-50%);
     }
     .timeline ul li::after{
